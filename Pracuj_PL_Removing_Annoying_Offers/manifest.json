@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "PracujFilter",
+  "version": "1.0",
+  "description": "Filtruje ogłoszenia od wybranych pracodawców na pracuj.pl",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["*://*.pracuj.pl/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.pracuj.pl/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "128": "icon128.png"
+  }
+}
